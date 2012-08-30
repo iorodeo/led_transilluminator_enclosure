@@ -9,8 +9,8 @@ from led_trans_enclosure import LED_Trans_Enclosure
 
 
 INCH2MM = 25.4
-PROJECTION = True 
-MAKE_DXF = True 
+PROJECTION = False 
+MAKE_DXF = False 
 
 params = {
         'inner_height'            : 1.208*INCH2MM,
