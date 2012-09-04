@@ -12,9 +12,11 @@ class LED_Trans_Enclosure(Basic_Enclosure):
         self.set_inner_dimensions()
         self.add_dc_plug_hole()
         self.add_vent_holes()
+        self.add_switch_hole()
         super(LED_Trans_Enclosure,self).make()
-        self.make_upper_top()
         self.make_lower_top()
+        self.make_middle_top()
+        self.make_upper_top()
 
     def get_projection(self,**kwargs):
         part_list = super(LED_Trans_Enclosure,self).get_projection(**kwargs)
@@ -28,13 +30,17 @@ class LED_Trans_Enclosure(Basic_Enclosure):
         except KeyError:
             explode_x, explode_y, explode_z = 0, 0, 0
         try:
+            show_top_middle = kwargs['show_top_middle']
+        except KeyError:
+            show_top_middle = True 
+        try:
             show_top_lower = kwargs['show_top_lower']
         except KeyError:
             show_top_lower = True 
         try:
-            show_top_upper = kwargs['show_top_lower']
+            show_top_upper = kwargs['show_top_upper']
         except KeyError:
-            show_top_upper = True 
+            show_top_upper = True
 
         # Translate lower and upper top into position
         x,y,z = self.params['inner_dimensions']
@@ -43,28 +49,36 @@ class LED_Trans_Enclosure(Basic_Enclosure):
         top_lower = Translate(self.top_lower, v=(0.0,0.0,top_z_shift))
 
         top_z_shift += top_wall_thickness + explode_z
+        top_middle = Translate(self.top_middle, v=(0.0,0.0,top_z_shift))
+
+        top_z_shift += top_wall_thickness + explode_z
         top_upper = Translate(self.top_upper, v=(0.0,0.0,top_z_shift))
 
+        if show_top_middle:
+            part_list.append(top_middle)
         if show_top_lower:
             part_list.append(top_lower)
         if show_top_upper:
             part_list.append(top_upper)
         return part_list
 
-    def make_upper_top(self):
-        self.make_top('top_upper')
-
     def make_lower_top(self):
         self.make_top('top_lower')
+
+    def make_middle_top(self):
+        self.make_top('top_middle')
         hole_dx = self.params['led_cutout_dx']
         hole_dy = self.params['led_cutout_dy']
         cutout_hole = { 
-                'panel'    : 'top_lower',
+                'panel'    : 'top_middle',
                 'type'     : 'square',
                 'location' : (0,0),
                 'size'     : (hole_dx, hole_dy),
                 }
         self.add_holes([cutout_hole])
+
+    def make_upper_top(self):
+        self.make_top('top_upper')
 
     def make_top(self, name):
         thickness = self.params['top_wall_thickness']
@@ -72,10 +86,19 @@ class LED_Trans_Enclosure(Basic_Enclosure):
         top = rounded_box(self.top_x, self.top_y, thickness, lid_radius, round_z=False)
         setattr(self,name,top)
         hole_list = []
-        for hole in self.tab_hole_list + self.standoff_hole_list:
+        if name != 'top_upper':
+            for hole in self.tab_hole_list: 
+                if hole['panel'] != 'top':
+                    continue
+                else:
+                    new_hole = dict(hole)
+                    new_hole['panel'] = name 
+                    hole_list.append(new_hole)
+
+        for hole in self.standoff_hole_list:
             if hole['panel'] != 'top':
                 continue
-            else:
+            else: 
                 new_hole = dict(hole)
                 new_hole['panel'] = name 
                 hole_list.append(new_hole)
@@ -107,7 +130,7 @@ class LED_Trans_Enclosure(Basic_Enclosure):
 
     def add_dc_plug_hole(self):
         x,y,z = self.params['inner_dimensions']
-        hole_x = self.params['dc_jack_offset']
+        hole_x = self.params['dc_jack_offset_x']
         hole_y = -0.5*z  
         hole_y += self.params['pcb_standoff_height']
         hole_y += self.params['pcb_thickness']
@@ -120,6 +143,27 @@ class LED_Trans_Enclosure(Basic_Enclosure):
                 } 
         self.params['hole_list'].append(dc_plug_hole)
         
+    def add_switch_hole(self):
+        x,y,z = self.params['inner_dimensions']
+        hole_location_x = self.params['switch_offset_x']
+        hole_location_y = -0.5*z  
+        hole_location_y += self.params['pcb_standoff_height']
+        hole_location_y += self.params['pcb_thickness']
+        hole_location_y += self.params['switch_height']
+        hole_size_x = self.params['switch_hole_x']
+        hole_size_y = self.params['switch_hole_y']
+        hole_radius = self.params['switch_hole_radius']
+        switch_hole = { 
+                'panel'     : 'right',
+                'type'      : 'rounded_square',
+                'location'  : (hole_location_x, hole_location_y),
+                'size'      : (hole_size_x, hole_size_y, hole_radius),
+                } 
+        self.params['hole_list'].append(switch_hole)
+
+
+
+
     def add_vent_holes(self): 
         vent_hole_diameter = self.params['vent_hole_diameter']
         vent_hole_array_dx = self.params['vent_hole_array_dx']     

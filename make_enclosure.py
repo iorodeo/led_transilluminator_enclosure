@@ -9,11 +9,11 @@ from led_trans_enclosure import LED_Trans_Enclosure
 
 
 INCH2MM = 25.4
-PROJECTION = False 
-MAKE_DXF = False 
+PROJECTION = True 
+MAKE_DXF = True 
 
 params = {
-        'inner_height'            : 1.208*INCH2MM,
+        'inner_height'            : 1.438*INCH2MM,
         'pcb_mount_hole_dx'       : 4.1953*INCH2MM,
         'pcb_mount_hole_dy'       : 2.1894*INCH2MM,
         'pcb_mount_hole_diam'     : 0.1160*INCH2MM,
@@ -33,10 +33,15 @@ params = {
         'standoff_diameter'       : 0.25*INCH2MM,
         'standoff_offset'         : 0.05*INCH2MM, 
         'standoff_hole_diameter'  : 0.116*INCH2MM,   
-        'pcb_standoff_height'     : (5.0/16.0)*INCH2MM,
+        'pcb_standoff_height'     : (3.0/8.0)*INCH2MM,
         'pcb_thickness'           : 0.061*INCH2MM,
         'dc_jack_height'          : 0.25*INCH2MM,
-        'dc_jack_offset'          : -0.415*INCH2MM,
+        'dc_jack_offset_x'        : -0.415*INCH2MM,
+        'switch_height'           : 0.25*INCH2MM, 
+        'switch_offset_x'         : 0.335*INCH2MM, 
+        'switch_hole_x'           : 0.76*INCH2MM,
+        'switch_hole_y'           : 0.32*INCH2MM,
+        'switch_hole_radius'      : 1.0,
         'dc_plug_diam'            : 0.38*INCH2MM,
         'led_cutout_dx'           : 2.718*INCH2MM,
         'led_cutout_dy'           : 2.41*INCH2MM,
@@ -57,7 +62,7 @@ enclosure.make()
 part_assembly = enclosure.get_assembly(
         explode=(0,0,10),
         show_top_upper = True, 
-        show_top_lower = True,
+        show_top_middle = True,
         show_bottom = True,
         show_left =  True,
         show_right = True,
@@ -82,7 +87,7 @@ filename = 'enclosure_projection.scad'
 prog_projection.write(filename)
 proj_file_list.append(filename)
 
-top_name_list = ['top_lower', 'top_upper']
+top_name_list = ['top_middle', 'top_lower', 'top_upper']
 for top_name in top_name_list:
     prog_top_proj = SCAD_Prog()
     prog_top_proj.fn = 50
