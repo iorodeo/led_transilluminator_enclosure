@@ -105,7 +105,7 @@ if MAKE_DXF:
     for scad_name in proj_file_list:
         base_name, ext = os.path.splitext(scad_name)
         dxf_name = '{0}.dxf'.format(base_name)
-        cmd = ['openscad', '-o', dxf_name, scad_name]
+        cmd = ['openscad', '-x', dxf_name, scad_name]
         print('{0} --> {1}'.format(scad_name, dxf_name))
         print(' '.join(cmd))
         subprocess.call(cmd)
