@@ -9,16 +9,18 @@ from led_trans_enclosure import LED_Trans_Enclosure
 
 
 INCH2MM = 25.4
-PROJECTION = True 
+PROJECTION =True 
 MAKE_DXF = True 
 
 params = {
-        'inner_height'            : 1.438*INCH2MM,
+        'inner_height'            : 1.2505*INCH2MM,
         'pcb_mount_hole_dx'       : 4.1953*INCH2MM,
         'pcb_mount_hole_dy'       : 2.1894*INCH2MM,
         'pcb_mount_hole_diam'     : 0.1160*INCH2MM,
         'wall_thickness'          : 3.0, 
-        'top_wall_thickness'      : 1.5,
+        'top_upper_thickness'     : 1.5,
+        'top_middle_thickness'    : 1.5,
+        'top_lower_thickness'     : 3.0,
         'lid_radius'              : 0.25*INCH2MM,  
         'top_x_overhang'          : 0.10*INCH2MM,
         'top_y_overhang'          : 0.08*INCH2MM,
@@ -30,17 +32,20 @@ params = {
         'lid2front_tab_width'     : 0.5*INCH2MM,
         'lid2side_tab_width'      : 0.5*INCH2MM, 
         'side2side_tab_width'     : 0.5*INCH2MM,
+        'tab_depth_top'           : 4.55,
+        'tab_depth_bot'           : 3.0,
+        'tab_depth_side'          : 3.0,
         'standoff_diameter'       : 0.25*INCH2MM,
         'standoff_offset'         : 0.05*INCH2MM, 
         'standoff_hole_diameter'  : 0.116*INCH2MM,   
-        'pcb_standoff_height'     : (3.0/8.0)*INCH2MM,
+        'pcb_standoff_height'     : (3.0/16.0)*INCH2MM,
         'pcb_thickness'           : 0.061*INCH2MM,
         'dc_jack_height'          : 0.25*INCH2MM,
         'dc_jack_offset_x'        : -0.415*INCH2MM,
-        'switch_height'           : 0.25*INCH2MM, 
+        'switch_height'           : 7.2, 
         'switch_offset_x'         : 0.335*INCH2MM, 
-        'switch_hole_x'           : 0.76*INCH2MM,
-        'switch_hole_y'           : 0.32*INCH2MM,
+        'switch_hole_x'           : 0.40*INCH2MM,
+        'switch_hole_y'           : 6.0,
         'switch_hole_radius'      : 1.0,
         'dc_plug_diam'            : 0.38*INCH2MM,
         'led_cutout_dx'           : 2.718*INCH2MM,

@@ -44,14 +44,16 @@ class LED_Trans_Enclosure(Basic_Enclosure):
 
         # Translate lower and upper top into position
         x,y,z = self.params['inner_dimensions']
-        top_wall_thickness = self.params['top_wall_thickness']
-        top_z_shift = 0.5*z + 0.5*top_wall_thickness + explode_z
+        top_lower_thickness = self.params['top_lower_thickness']
+        top_z_shift = 0.5*z + 0.5*top_lower_thickness + explode_z
         top_lower = Translate(self.top_lower, v=(0.0,0.0,top_z_shift))
 
-        top_z_shift += top_wall_thickness + explode_z
+        top_middle_thickness = self.params['top_middle_thickness']
+        top_z_shift += top_middle_thickness + explode_z
         top_middle = Translate(self.top_middle, v=(0.0,0.0,top_z_shift))
 
-        top_z_shift += top_wall_thickness + explode_z
+        top_upper_thickness = self.params['top_upper_thickness']
+        top_z_shift += top_upper_thickness + explode_z
         top_upper = Translate(self.top_upper, v=(0.0,0.0,top_z_shift))
 
         if show_top_middle:
@@ -61,6 +63,97 @@ class LED_Trans_Enclosure(Basic_Enclosure):
         if show_top_upper:
             part_list.append(top_upper)
         return part_list
+
+    def make_left_and_right(self):
+        """
+        Creates the left and right side panels of the enclosure.
+        """
+        inner_x, inner_y, inner_z = self.params['inner_dimensions']
+        wall_thickness = self.params['wall_thickness']
+        lid2side_tab_width = self.params['lid2side_tab_width']
+        side2side_tab_width = self.params['side2side_tab_width']
+
+        # Only apply tab depth adjustment to positive tabs
+        tab_depth_top = self.params['tab_depth_top']  
+        tab_depth_bot = self.params['tab_depth_bot']
+        tab_depth_neg = wall_thickness
+
+        # Create tab data for yz faces of side panels
+        xz_pos = []
+        xz_neg = []
+        for loc in self.params['lid2side_tabs']:
+            tab_data_top = (loc, lid2side_tab_width, tab_depth_top, '+')
+            tab_data_bot = (loc, lid2side_tab_width, tab_depth_bot, '+')
+            xz_pos.append(tab_data_top)
+            xz_neg.append(tab_data_bot)
+
+        # Create tab data for xz faces of side panels
+        yz_pos = []
+        yz_neg = []
+        for loc in self.params['side2side_tabs']:
+            tab_data = (loc, side2side_tab_width, tab_depth_neg, '-')
+            yz_pos.append(tab_data)
+            yz_neg.append(tab_data)
+
+        # Pack panel data into parameters structure
+        params = {
+                'size' : (inner_y+2*wall_thickness, inner_z, wall_thickness),
+                'xz+'  : xz_pos,
+                'xz-'  : xz_neg,
+                'yz+'  : yz_pos,
+                'yz-'  : yz_neg,
+                }
+
+        plate_maker = Plate_W_Tabs(params)
+        self.left = plate_maker.make()
+        self.right = plate_maker.make()
+        
+
+    def make_front_and_back(self):
+        """
+        Creates the front and back panels of the enclosure.
+        """
+        inner_x, inner_y, inner_z = self.params['inner_dimensions']
+        wall_thickness = self.params['wall_thickness']
+        lid2front_tab_width =  self.params['lid2front_tab_width']
+        side2side_tab_width = self.params['side2side_tab_width']
+        
+        tab_depth_top = self.params['tab_depth_top']  
+        tab_depth_bot = self.params['tab_depth_bot']
+        tab_depth_side = self.params['tab_depth_side'] 
+
+        # Create tab data for xz faces of front and back panels
+        xz_pos = []
+        xz_neg = []
+        for loc in self.params['lid2front_tabs']:
+            tab_data_top = (loc, lid2front_tab_width, tab_depth_top, '+')
+            tab_data_bot = (loc, lid2front_tab_width, tab_depth_bot, '+')
+            xz_pos.append(tab_data_top)
+            xz_neg.append(tab_data_bot)
+
+        # Create tab data for yz faces of front and back panels
+        yz_pos = []
+        yz_neg = []
+        for loc in self.params['side2side_tabs']:
+            tab_data_side = (loc, side2side_tab_width, tab_depth_side, '+')
+            yz_pos.append(tab_data_side)
+            yz_neg.append(tab_data_side)
+
+
+        # Pack panel data into parameters structure
+        params = {
+                'size' : (inner_x, inner_z, wall_thickness),
+                'xz+'  : xz_pos,
+                'xz-'  : xz_neg,
+                'yz+'  : yz_pos,
+                'yz-'  : yz_neg,
+                }
+
+        plate_maker = Plate_W_Tabs(params)
+        self.front = plate_maker.make()
+        self.back = plate_maker.make()
+
+    
 
     def make_lower_top(self):
         self.make_top('top_lower')
@@ -81,7 +174,7 @@ class LED_Trans_Enclosure(Basic_Enclosure):
         self.make_top('top_upper')
 
     def make_top(self, name):
-        thickness = self.params['top_wall_thickness']
+        thickness = self.params['{0}_thickness'.format(name)]
         lid_radius = self.params['lid_radius']
         top = rounded_box(self.top_x, self.top_y, thickness, lid_radius, round_z=False)
         setattr(self,name,top)
@@ -160,9 +253,6 @@ class LED_Trans_Enclosure(Basic_Enclosure):
                 'size'      : (hole_size_x, hole_size_y, hole_radius),
                 } 
         self.params['hole_list'].append(switch_hole)
-
-
-
 
     def add_vent_holes(self): 
         vent_hole_diameter = self.params['vent_hole_diameter']
