@@ -1,17 +1,16 @@
-QTY   Description                           Vendor          PN                  
+QTY   Description                           Vendor             PN                  
 ------------------------------------------------------------------------------------
-8    4-40 machine screws, 1/4" long         McMaster-Carr  91249A105 
-4    4-40 standoff, male-female, 3/8” long  McMaster-Carr  93505A431 
-4	 4-40 standoff, 1.0” long               McMaster-Carr  91780A167
-4	 4-40 standoff, 3/4” long               McMaster-Carr  91780A166 
-4	 4-40 threaded stud, 1-1/4" long        McMaster-Carr  95412A360
-
-1    1/8"  x 12" x 12" black acrylic        McMaster-Carr  8505K11 
-1	 1/16" x 6"  x 12" clear acrylic        McMaster-Carr  8560K178
-1	 1/8"  x 6"  x 6"  amber acrylic        McMaster-Carr  85635K462	
-1	 1/8"  x 12" x 12" blue acrylite        Evonik         5C028 GT	
-1    1/16" x 12" x 24" black acrylic        Inventables    24112-01  
-1	 Light diffusing film                   Inventables	   23114-02
+8    4-40 machine screws, 1/4" long         McMaster-Carr      91249A105 
+4    4-40 standoff, male-female, 3/8” long  McMaster-Carr      93505A431 
+4	 4-40 standoff, 1.0” long               McMaster-Carr      91780A167
+4	 4-40 standoff, 3/4” long               McMaster-Carr      91780A166 
+4	 4-40 threaded stud, 1-1/4" long        McMaster-Carr      95412A360
+1    1/8"  x 12" x 12" black acrylic        McMaster-Carr      8505K11 
+1	 1/16" x 6"  x 12" clear acrylic        McMaster-Carr      8560K178
+1	 1/8"  x 6"  x 6"  amber acrylic        McMaster-Carr      85635K462	
+1	 1/8"  x 12" x 12" blue acrylite        acrylite-shop.com  5C028GT	
+1    1/16" x 12" x 24" black acrylic        Inventables        24112-01  
+1	 Light diffusing film                   Inventables	       23114-02
 
 																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																							
 
