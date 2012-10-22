@@ -12,7 +12,10 @@
    inkscape:version="0.47 r22583"
    width="981"
    height="1080"
-   sodipodi:docname="acrylic_parts.svg">
+   sodipodi:docname="acrylic_parts.png"
+   inkscape:export-filename="/home/jo/repos/led_transilluminator_enclosure/version_0p2/acrylic_parts.png"
+   inkscape:export-xdpi="113.55"
+   inkscape:export-ydpi="113.55">
   <metadata
      id="metadata7071">
     <rdf:RDF>
@@ -21,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -211,7 +214,10 @@
        style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:#973c3c;stroke-width:0;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;font-family:Bitstream Vera Sans"
        x="53.152336"
        y="-278.38239"
-       id="text3921"><tspan
+       id="text3921"
+       inkscape:export-filename="/home/jo/repos/led_transilluminator_enclosure/version_0p2/parts.png"
+       inkscape:export-xdpi="113.55"
+       inkscape:export-ydpi="113.55"><tspan
          sodipodi:role="line"
          x="53.152336"
          y="-278.38239"
@@ -219,7 +225,10 @@
          id="tspan3927">Laser cut parts for LED transilluminator kit, Cat # IMG-04</tspan></text>
     <g
        id="g14263"
-       transform="translate(35.212099,-89.999988)">
+       transform="translate(35.212099,-89.999988)"
+       inkscape:export-filename="/home/jo/repos/led_transilluminator_enclosure/version_0p2/parts.png"
+       inkscape:export-xdpi="113.55"
+       inkscape:export-ydpi="113.55">
       <g
          transform="translate(5.7067371,32.769705)"
          id="g10965">
@@ -5025,7 +5034,10 @@
        y="-181.82182"
        x="263.54327"
        style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-       xml:space="preserve"><tspan
+       xml:space="preserve"
+       inkscape:export-filename="/home/jo/repos/led_transilluminator_enclosure/version_0p2/parts.png"
+       inkscape:export-xdpi="113.55"
+       inkscape:export-ydpi="113.55"><tspan
          y="-181.82182"
          x="263.54327"
          id="tspan3316-4-6"
@@ -5041,7 +5053,10 @@
        y="-207.48784"
        x="-7.4265099"
        style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-       xml:space="preserve"><tspan
+       xml:space="preserve"
+       inkscape:export-filename="/home/jo/repos/led_transilluminator_enclosure/version_0p2/parts.png"
+       inkscape:export-xdpi="113.55"
+       inkscape:export-ydpi="113.55"><tspan
          y="-207.48784"
          x="-7.4265099"
          id="tspan3316-4-6-2"
@@ -5057,7 +5072,10 @@
        y="-181.82182"
        x="618.77875"
        style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-       xml:space="preserve"><tspan
+       xml:space="preserve"
+       inkscape:export-filename="/home/jo/repos/led_transilluminator_enclosure/version_0p2/parts.png"
+       inkscape:export-xdpi="113.55"
+       inkscape:export-ydpi="113.55"><tspan
          y="-181.82182"
          x="618.77875"
          id="tspan3316-4"
@@ -5070,7 +5088,10 @@
          style="font-size:14px;text-align:center;text-anchor:middle">3 x 38 x 122 mm black acrylic</tspan></text>
     <g
        id="g12189"
-       transform="translate(20.34599,-67.999988)">
+       transform="translate(20.34599,-67.999988)"
+       inkscape:export-filename="/home/jo/repos/led_transilluminator_enclosure/version_0p2/parts.png"
+       inkscape:export-xdpi="113.55"
+       inkscape:export-ydpi="113.55">
       <g
          transform="matrix(-1,0,0,-1,488.58509,679.9297)"
          id="g7143">
@@ -13357,7 +13378,10 @@
     </g>
     <g
        id="g6979"
-       transform="matrix(0,-1,1,0,-307.13718,-156.13327)">
+       transform="matrix(0,-1,1,0,-307.13718,-156.13327)"
+       inkscape:export-filename="/home/jo/repos/led_transilluminator_enclosure/version_0p2/parts.png"
+       inkscape:export-xdpi="113.55"
+       inkscape:export-ydpi="113.55">
       <path
          id="path2851"
          d="m -48.341646,655.72352 0,-45"
@@ -13473,7 +13497,10 @@
     </g>
     <g
        id="g7149"
-       transform="translate(253.21979,-986.99152)">
+       transform="translate(253.21979,-986.99152)"
+       inkscape:export-filename="/home/jo/repos/led_transilluminator_enclosure/version_0p2/parts.png"
+       inkscape:export-xdpi="113.55"
+       inkscape:export-ydpi="113.55">
       <path
          id="path3027"
          d="m 150.48394,834.79872 0,-45"
@@ -13621,7 +13648,10 @@
     </g>
     <g
        id="g7009"
-       transform="matrix(0,1,-1,0,563.43851,-887.4358)">
+       transform="matrix(0,1,-1,0,563.43851,-887.4358)"
+       inkscape:export-filename="/home/jo/repos/led_transilluminator_enclosure/version_0p2/parts.png"
+       inkscape:export-xdpi="113.55"
+       inkscape:export-ydpi="113.55">
       <path
          id="path6659-9"
          d="m 640.34615,655.72352 0,-45"
