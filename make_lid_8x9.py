@@ -3,6 +3,7 @@ from py2scad import *
 import subprocess
 
 make_dxf = True
+model = '8x9'
 
 x = 160.0
 y = 100.0
@@ -11,9 +12,9 @@ radius = 5.0
 standoff_diam = 0.25*INCH2MM
 hole_offset = 0.5*standoff_diam
 hole_diam = 0.116*INCH2MM 
-part_name = 'lid.scad'
-proj_name = 'lid_proj.scad'
-proj_dxf_name = 'lid_proj.dxf'
+part_name = 'lid_{0}.scad'.format(model)
+proj_name = 'lid_proj_{0}.scad'.format(model)
+proj_dxf_name = 'lid_proj_{0}.dxf'.format(model)
 
 
 hole_list = []
