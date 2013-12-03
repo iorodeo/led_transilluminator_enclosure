@@ -11,6 +11,7 @@ from led_trans_enclosure import LED_Trans_Enclosure
 INCH2MM = 25.4
 PROJECTION =True 
 MAKE_DXF = True 
+model = '8x9'
 
 params = {
         'inner_height'            : 1.2505*INCH2MM,
@@ -83,12 +84,12 @@ part_projection = enclosure.get_projection(
 prog_assembly = SCAD_Prog()
 prog_assembly.fn = 50
 prog_assembly.add(part_assembly)
-prog_assembly.write('enclosure_assembly.scad')
+prog_assembly.write('enclosure_assembly_{0}.scad'.format(model))
 
 prog_projection = SCAD_Prog()
 prog_projection.fn = 50
 prog_projection.add(part_projection)
-filename = 'enclosure_projection.scad'
+filename = 'enclosure_projection_{0}.scad'.format(model)
 prog_projection.write(filename)
 proj_file_list.append(filename)
 
@@ -102,7 +103,7 @@ for top_name in top_name_list:
     else:
         top_proj = top
     prog_top_proj.add(top_proj)
-    filename = '{0}_projection.scad'.format(top_name)
+    filename = '{0}_projection_{1}.scad'.format(top_name,model)
     prog_top_proj.write(filename)
     proj_file_list.append(filename)
 
